@@ -290,3 +290,40 @@ insert into Notification(user_id, message)
 values(u_id, msg);
 end //
 delimiter ;
+
+delimiter //
+create procedure SaveLocation(
+in lat decimal(9,6),
+in lng decimal(9,6),
+in addr varchar(100)
+)
+begin
+insert into Location(latitude, longitude, address)
+values (lat, lng, addr);
+end//
+delimiter ;
+
+
+delimiter //
+create procedure AddReport(
+in u_id int, 
+in r_type varchar(50),
+in descr varchar(500)
+)
+begin
+insert into Incident_Report(user_id, type, description)
+values(u_id, r_type, descr);
+end //
+delimiter ;
+
+
+delimiter //
+create procedure AddNotification(
+in u_id int,
+in msg varchar(100)
+)
+begin 
+insert into Notification(user_id, message)
+values(u_id, msg);
+end //
+delimiter ;
